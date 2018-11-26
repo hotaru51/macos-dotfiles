@@ -1,6 +1,7 @@
 # macos-dotfiles
 
 Mac用のdotfileと配置スクリプト
+dotfileは"."を外して作成
 
 ## Usage
 

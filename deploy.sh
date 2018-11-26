@@ -11,18 +11,19 @@ ls ${pwd_dir} | grep -v "${shl_name}"> ${tmp}
 cat ${tmp} | while read FILE
 do
   dot_file=".${FILE}"
+
+  # dotfileが存在する場合はバックアップ
   if [ -f ${HOME}/${dot_file} ]; then
     # バックアップ先がない場合は新規作成
     test ! -d ${old_dir} && mkdir ${old_dir}
-
     # バックアップ
     echo "backup ${dot_file} into ${old_dir}"
     cp -p ${HOME}/${dot_file} ${old_dir}
-
-    # 配置
-    echo "deploy ${FILE}"
-    cp -p ${pwd_dir}/${FILE} ${HOME}/${dot_file}
   fi
+
+  # 配置
+  echo "deploy ${FILE}"
+  cp -p ${pwd_dir}/${FILE} ${HOME}/${dot_file}
 done
 
 rm -f ${tmp}
