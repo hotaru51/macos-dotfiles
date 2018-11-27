@@ -5,8 +5,8 @@ fi
 
 # asdf
 asdf_home=$HOME/.asdf
-test -f ${asdf_home}/asdf.sh && . $HOME/.asdf/asdf.sh
-test -f ${asdf_home}/completions/asdf.bash && . $HOME/.asdf/completions/asdf.bash
+test -f ${asdf_home}/asdf.sh && . ${asdf_home}/asdf.sh
+test -f ${asdf_home}/completions/asdf.bash && . ${asdf_home}/completions/asdf.bash
 unset asdf_home
 
 # NeoVim
