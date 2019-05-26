@@ -4,26 +4,18 @@ set -ue
 
 pwd_dir=$(cd $(dirname $0); pwd)
 shl_name=`basename $0`
-old_dir=${HOME}/.old_dotfiles
-tmp=/tmp/${shl_name}.$$.tmp
+backup_dir=${pwd_dir}/old
+dotfiles=(.bash_profile .bashrc)
 
-ls ${pwd_dir} | grep -v "${shl_name}"> ${tmp}
-cat ${tmp} | while read FILE
+test ! -d ${backup_dir} && mkdir ${backup_dir}
+
+for FILE in ${dotfiles[@]}
 do
-  dot_file=".${FILE}"
-
   # dotfileが存在する場合はバックアップ
-  if [ -f ${HOME}/${dot_file} ]; then
-    # バックアップ先がない場合は新規作成
-    test ! -d ${old_dir} && mkdir ${old_dir}
-    # バックアップ
-    echo "backup ${dot_file} into ${old_dir}"
-    cp -p ${HOME}/${dot_file} ${old_dir}
+  if [ -f ${HOME}/${FILE} ]; then
+    mv ${HOME}/${FILE} ${backup_dir}
   fi
 
-  # 配置
-  echo "deploy ${FILE}"
-  cp -p ${pwd_dir}/${FILE} ${HOME}/${dot_file}
+  # シンボリックリンク作成
+  ln -s ${pwd_dir}/${FILE} ${HOME}/${FILE}
 done
-
-rm -f ${tmp}
