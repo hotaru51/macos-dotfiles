@@ -3,7 +3,6 @@
 set -ue
 
 pwd_dir=$(cd $(dirname $0); pwd)
-shl_name=`basename $0`
 backup_dir=${pwd_dir}/old
 dotfiles=(.bash_profile .bashrc)
 
