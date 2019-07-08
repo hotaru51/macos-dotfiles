@@ -9,6 +9,7 @@ if [ -d ${brew_git_home} ]; then
   git_version=`ls ${brew_git_home} | sort | tail -1`
   PATH=${brew_git_home}/${git_version}/bin/:$PATH
 fi
+unset brew_git_home
 
 # asdf
 asdf_home=$HOME/.asdf
