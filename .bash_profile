@@ -11,6 +11,9 @@ if [ -d ${brew_git_home} ]; then
 fi
 unset brew_git_home
 
+# anyenv
+test -f /usr/local/bin/anyenv && eval "$(anyenv init -)"
+
 # NeoVim
 export XDG_CONFIG_HOME=~/.config
 
