@@ -20,6 +20,6 @@ export XDG_CONFIG_HOME=~/.config
 
 # Java
 JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home
-PATH=$PATH:$JAVA_HOME/bin
+PATH=$JAVA_HOME/bin:$PATH
 
 export PATH JAVA_HOME
