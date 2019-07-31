@@ -10,6 +10,7 @@ if [ -d ${brew_git_home} ]; then
   PATH=${brew_git_home}/${git_version}/bin/:$PATH
 fi
 unset brew_git_home
+unset git_version
 
 # anyenv
 test -f /usr/local/bin/anyenv && eval "$(anyenv init -)"
