@@ -8,6 +8,7 @@ brew_git_home=/usr/local/Cellar/git
 if [ -d ${brew_git_home} ]; then
   git_version=`ls ${brew_git_home} | sort | tail -1`
   PATH=${brew_git_home}/${git_version}/bin/:$PATH
+  export PS1='[\u@\h \W$(__git_ps1)]\$ '
 fi
 unset brew_git_home
 unset git_version
