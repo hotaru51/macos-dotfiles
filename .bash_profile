@@ -19,12 +19,6 @@ test -f /usr/local/bin/anyenv && eval "$(anyenv init -)"
 # NeoVim
 export XDG_CONFIG_HOME=~/.config
 
-# Java
-JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home
-PATH=$JAVA_HOME/bin:$PATH
-
-export PATH JAVA_HOME
-
 # read .bash_profile_local
 if [ -f ~/.bash_profile_local ]; then
     . ~/.bash_profile_local
