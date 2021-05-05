@@ -18,3 +18,8 @@ if [ -f /usr/local/etc/bash_completion.d/git-completion.bash \
     source /usr/local/etc/bash_completion.d/git-completion.bash
     source /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
+
+# read .bashrc_local
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi

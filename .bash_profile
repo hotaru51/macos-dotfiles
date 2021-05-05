@@ -20,6 +20,11 @@ PATH=$JAVA_HOME/bin:$PATH
 
 export PATH JAVA_HOME
 
+# read .bash_profile_local
+if [ -f ~/.bash_profile_local ]; then
+    . ~/.bash_profile_local
+fi
+
 # read .bashrc
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
