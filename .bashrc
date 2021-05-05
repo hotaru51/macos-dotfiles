@@ -9,7 +9,11 @@ fi
 
 # ssh config hosts
 ssh-hosts() {
-    grep -r -E '^[Hh]ost\s' ~/.ssh | awk '{print $NF}' | sed -e '/^\*$/d'
+    if [ "$#" -ge 1 ]; then
+        grep -r -E '^[Hh]ost\s' ~/.ssh | awk '{print $NF}' | sed -e '/^\*$/d' | grep "${1}"
+    else
+        grep -r -E '^[Hh]ost\s' ~/.ssh | awk '{print $NF}' | sed -e '/^\*$/d'
+    fi
 }
 
 # AWS CLI
