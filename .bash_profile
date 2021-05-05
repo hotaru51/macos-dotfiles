@@ -1,3 +1,8 @@
+# bash-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
 # Homebrew git
 brew_git_home=/usr/local/Cellar/git
 if [ -d ${brew_git_home} ]; then
