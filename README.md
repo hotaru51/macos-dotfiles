@@ -2,6 +2,12 @@
 
 Mac用のdotfileと配置スクリプト  
 
+## Requirement
+
+下記は導入前に必須
+
+* [Homebrew](https://brew.sh/)
+
 ## Usage
 
 ```sh
