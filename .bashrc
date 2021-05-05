@@ -12,6 +12,11 @@ ssh-hosts() {
     grep -r -E '^[Hh]ost\s' ~/.ssh | awk '{print $NF}' | sed -e '/^\*$/d'
 }
 
+# AWS CLI
+if [ -f "$(which aws_completer)" ]; then
+    complete -C "$(which aws_completer)" aws
+fi
+
 # read .bashrc_local
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
