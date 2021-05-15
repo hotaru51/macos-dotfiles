@@ -1,20 +1,27 @@
-#!/bin/sh
+#!/bin/bash
 
 set -ue
 
-pwd_dir=$(cd $(dirname $0); pwd)
-backup_dir=${pwd_dir}/old
-dotfiles=(.bash_profile .bashrc)
+work_dir=$(cd $(dirname $0); pwd)
+backup_dir=${work_dir}/old
+config_dir=${HOME}/.config
+
+dotfiles=(
+    ${HOME}/.bash_profile
+    ${HOME}/.bashrc
+    ${config_dir}/starship.toml
+)
 
 test ! -d ${backup_dir} && mkdir ${backup_dir}
+test ! -d ${config_dir} && mkdir ${config_dir}
 
-for FILE in ${dotfiles[@]}
+for file in "${dotfiles[@]}"
 do
-  # dotfileが存在する場合はバックアップ
-  if [ -f ${HOME}/${FILE} ]; then
-    mv ${HOME}/${FILE} ${backup_dir}
-  fi
+    # dotfileが存在する場合はバックアップ
+    if [ -f "${file}" ]; then
+        mv ${file} ${backup_dir}
+    fi
 
   # シンボリックリンク作成
-  ln -s ${pwd_dir}/${FILE} ${HOME}/${FILE}
+  ln -s ${work_dir}/$(basename ${file}) ${file}
 done
