@@ -21,6 +21,10 @@ if [ -f "$(which aws_completer)" ]; then
     complete -C "$(which aws_completer)" aws
 fi
 
+if [ -f "$(which starship)" ]; then
+    eval "$(starship init bash)"
+fi
+
 # read .bashrc_local
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
