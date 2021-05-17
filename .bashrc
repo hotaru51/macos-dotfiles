@@ -21,6 +21,7 @@ if [ -f "$(which aws_completer)" ]; then
     complete -C "$(which aws_completer)" aws
 fi
 
+# Starship
 if [ -f "$(which starship)" ]; then
     eval "$(starship init bash)"
 fi
